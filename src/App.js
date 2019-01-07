@@ -1,25 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+import Swatch from './components/swatch';
+import TestColour from './components/testColour';
+
+class App extends Component {  
+
+  constructor(props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+    this.state = {
+      checkColour: '#9EA2A4'
+    }
+  }
+
+  swatches = [
+    {name: 'tarmac', colour: '#0C161C'},
+    {name: 'tarmac-light-10', colour: '#242D33'},
+    {name: 'tarmac-light-20', colour: '#3D4549'},
+    {name: 'tarmac-light-60', colour: '#9EA2A4'},
+    {name: 'tarmac-light-70', colour: '#B6B9BB'},
+    {name: 'tarmac-light-80', colour: '#CED0D2'},
+  ]  
+
+  input = {
+    margin: '10px',
+    fontSize: '1.5rem'
+  }
+
+  handleChange(e) {
+    this.setState({checkColour: e.target.value})
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
+        <label>Enter Hex colour
+          <input style={this.input} value={this.state.checkColour} onChange={this.handleChange}/>
+        </label>
+
+        <div style={{display: 'flex'}}>
+          {this.swatches.map(i => 
+            <Swatch swatch={i}></Swatch>
+          )}
+        </div>        
+
+        <TestColour colour={this.state.checkColour}></TestColour>
+
       </div>
     );
   }
