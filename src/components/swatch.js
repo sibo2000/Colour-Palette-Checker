@@ -14,6 +14,8 @@ function Swatch(props) {
     return (        
         <div style={swatch}>
             <span style={span}>{props.swatch.name}</span>
+            <br/>
+            <span style={span}>{props.swatch.colour}</span>
         </div>        
     )
 } 
