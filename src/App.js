@@ -21,6 +21,9 @@ class App extends Component {
     {name: 'tarmac-light-60', colour: '#9EA2A4'},
     {name: 'tarmac-light-70', colour: '#B6B9BB'},
     {name: 'tarmac-light-80', colour: '#CED0D2'},
+    {name: 'chalk-dark-10', colour: '#E0E1E1'},
+    {name: 'chalk', colour: '#F9FAFA'},
+    {name: 'chalk-light-20', colour: '#FFFFFF'},
   ]  
 
   input = {
